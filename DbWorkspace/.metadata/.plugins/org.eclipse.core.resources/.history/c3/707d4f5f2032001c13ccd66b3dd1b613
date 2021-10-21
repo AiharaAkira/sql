@@ -1,0 +1,6 @@
+--주석
+--테이블 생성
+CREATE TABLE product(
+p_name varchar2(10 char),
+p_price number(4)
+);

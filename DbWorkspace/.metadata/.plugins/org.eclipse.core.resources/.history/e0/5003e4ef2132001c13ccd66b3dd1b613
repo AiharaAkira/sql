@@ -1,0 +1,11 @@
+--주석
+--테이블 생성
+CREATE TABLE product(
+p_name varchar2(10 char),
+p_price number(4)
+);
+
+--값넣기
+insert into product values('pen', 1000);
+--조회
+select * from product
