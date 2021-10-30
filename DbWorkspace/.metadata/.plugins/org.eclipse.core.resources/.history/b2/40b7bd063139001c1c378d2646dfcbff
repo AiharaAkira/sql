@@ -1,0 +1,16 @@
+create table db_test(
+	d_no number(2) primary key,
+	d_name varchar2(20 char) not null,
+	d_age number(3) not null
+);
+
+create sequence db_test_seq;
+
+--데이터 넣기
+insert into db_test values (db_test_seq.nextval, '솔리', 20);
+insert into db_test values (db_test_seq.nextval, '준석', 20);
+insert into db_test values (db_test_seq.nextval, '문영', 20);
+
+update db_test set d_age = 27 where d_name = '문영';
+
+select * from db_test;

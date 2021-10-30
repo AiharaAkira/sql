@@ -1,0 +1,18 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBMain {
+
+	public static void main(String[] args) throws SQLException {
+
+		//DB관련 작업 - 껍데기
+		
+//		연결
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		Connection con = DriverManager.getConnection(url, "cmw", "cmw");
+		System.out.println("연결성공");
+		
+	}
+
+}

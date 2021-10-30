@@ -1,0 +1,20 @@
+---------------- 빈 껍데기
+Connection
+Statment
+ResultSet
+---------------- 실제 구동코드 드라이버(odbc)
+
+1. Driver를 로드 (객체화)
+class.forName("oracle.jdbc.driver.OracleDriver");
+
+2. 연결 객체 얻기
+Connection con = DriverManager.getConnection(
+url = jdbc:oracle:thin:@localhost:1521:xe, id, pw);
+
+3. 실행 도구를 생성
+Statement st = con.createStatement();
+
+4. 결과를 얻기
+ResultSet rs = st.executeQuery(sql);
+
+rs.뭐뭐

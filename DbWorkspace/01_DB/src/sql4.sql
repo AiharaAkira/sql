@@ -81,6 +81,7 @@ select s_name, s_maker, s_price from SNACK
 where s_price = 
 	(select max(s_price) from SNACK);
 	
+	
 --snack 테이블 중에 평균가 보다 비싼과자 (이름, 가격)
 select s_name, s_price from SNACK
 where s_price > 
@@ -96,6 +97,59 @@ where s_weight =
 ;
 ---------------------------
 --subQuery(쿼리속 쿼리)
+
+--농심 과자의 평균가 보다 비싼 과자의 정보 전체
+
+select * from SNACK
+where s_price > 
+	(
+	select avg(s_price) from SNACK
+	where s_maker like '농심%'
+	)
+;	
+
+-- 해태 과자중 제일 비싼 과자보다 싼 나머지 과자들의 정보 전체
+select * from SNACK
+where s_price < 
+	(
+	select max(s_price) 
+	from SNACK
+	where s_maker like '해태%'
+	)
+	
+
+;
+
+--농심, 해태 과자 정보 전체
+select * from SNACK
+where s_maker like '농심' or s_maker like '해태'
+;
+
+-- 1000 < 가격 < 1500 인 과자 정보 전체
+select * from SNACK 
+where s_price >1000 and s_price <1500;
+----------------------------------------------
+--정렬 order by 컬럼 asc(오름차순) / desc(역순)
+
+-- 롯데 과자 전체 이름순으로 ㅈ정렬
+select * from SNACK
+where s_maker like '해태'
+order by s_name asc
+;
+
+--과자 전체 정보를 가격순(오름차순)
+select * from SNACK
+order by s_price, s_name
+;
+
+-- 1500원 전재산
+-- 내가 사먹을 수 있는 과자 리스트
+-- 유통기한이 짧은 걸 위로
+
+select * from SNACK
+where s_price <= 1500
+order by s_exp asc;
+
 
 
 insert into SNACK 

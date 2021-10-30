@@ -1,0 +1,15 @@
+--select
+
+select * from snack;
+
+-- 전체 과자 이름, 가격, 무게
+
+select s_name, s_price, s_weight from SNACK;
+
+-- 전체 과자 이름, 제조사,가격, 유통기한
+
+select s_name, s_maker, s_price, s_exp from SNACK;
+
+--필드명이 맘에 안들면 as XXX 해서 바꿀수 있음
+select s_name, s_maker as jejosa, s_price, s_exp from SNACK;
+
