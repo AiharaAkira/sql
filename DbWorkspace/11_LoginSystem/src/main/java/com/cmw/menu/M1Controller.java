@@ -1,4 +1,4 @@
-package com.cmw.main;
+package com.cmw.menu;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,18 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HC")
-public class HC extends HttpServlet {
+import com.cmw.main.AccountDAO;
+
+@WebServlet("/M1Controller")
+public class M1Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(!request.getParameterNames().hasMoreElements()) {
+	//로그인했는지 안했는지
 		
-			request.getRequestDispatcher("index.html").forward(request, response);
-		}
-		//등록하는 일 insert
-		request.setAttribute("r", DAO_Member.reMember(M.getVal(request))); 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		AccountDAO.loginCheck(request);
 	
-		}
+		
+	request.setAttribute("contentPage", "m1.jsp");
+	request.getRequestDispatcher("index.jsp").forward(request, response);
+	}
+	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 

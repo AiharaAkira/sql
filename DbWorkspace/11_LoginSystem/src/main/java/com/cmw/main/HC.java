@@ -10,15 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/HC")
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(!request.getParameterNames().hasMoreElements()) {
 		
-			request.getRequestDispatcher("index.html").forward(request, response);
-		}
-		//등록하는 일 insert
-		request.setAttribute("r", DAO_Member.reMember(M.getVal(request))); 
+		AccountDAO.loginCheck(request);
+		request.setAttribute("contentPage", "home.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-	
-		}
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 

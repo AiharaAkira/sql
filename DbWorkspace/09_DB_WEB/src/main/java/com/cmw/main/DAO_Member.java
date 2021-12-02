@@ -43,5 +43,35 @@ public class DAO_Member {
 		}
 		
 	}
+
+	public static String reMember(Member m) {
+		
+		//값 - 모델에서 이미 작업 해놓음
+		//껍
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con = DBManager.connection();
+			String sql = "insert into member values(member_seq.nextval, ?, ?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, m.getName());
+			pstmt.setInt(2, m.getAge());
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("등록성공");
+				return "등록성공";
+			}
+			return "등록실패";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "DB서버 문제";
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+	}
 	
 }
