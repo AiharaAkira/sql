@@ -12,3 +12,17 @@ insert into MOVIE_test values (MOVIE_TEST_seq.nextval, '力格', '硅快', '荤柳', '
 insert into MOVIE_test values (MOVIE_TEST_seq.nextval, '力格1', '硅快1', '荤柳1', '临芭府1');
 
 select * from MOVIE_TEST;
+
+CREATE TABLE review_test(
+r_no number(3) primary key,
+r_title varchar2(30 char) not null,
+r_txt varchar2(200 char) not null,
+r_date date not null
+);
+
+CREATE sequence review_test_seq;
+
+insert into REVIEW_test values (review_TEST_seq.nextval, '力格', '郴侩', sysdate);
+insert into review_test values (review_TEST_seq.nextval, '力格1', '郴侩1', sysdate);
+
+select * from review_TEST;
