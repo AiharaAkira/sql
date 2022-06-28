@@ -74,4 +74,11 @@ constraint constraint_name constraint_type(column¸í)
 
 */
 
+create table emp04(
 
+empno number(4),
+ename varchar2(10) not null,
+job varchar2(9),
+deotno number(4)
+
+);
